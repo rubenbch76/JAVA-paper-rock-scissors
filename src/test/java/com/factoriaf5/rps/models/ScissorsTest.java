@@ -4,13 +4,13 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class RockTest {
+public class ScissorsTest {
     
     @Test
-    public void creationRock() {
+    public void creationScissors() {
         
         MaterialFactory factory = new MaterialFactory();
-        Material rock = factory.createMaterial("R");
-        assertEquals(true, rock instanceof Rock);
+        Material scissors = factory.createMaterial("S");
+        assertEquals(true, scissors instanceof Scissors);
     }
 }

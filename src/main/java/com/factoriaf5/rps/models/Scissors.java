@@ -3,12 +3,6 @@ package com.factoriaf5.rps.models;
 public class Scissors implements Material{
     
     @Override
-    public void execute() {
-       
-        System.out.println("Soy unas tijeras");
-    }
-
-    @Override
     public String isBetterThan(Material material) {
         
         if(material instanceof Paper) return "Tijeras gana a Papel";

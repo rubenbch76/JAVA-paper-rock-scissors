@@ -3,12 +3,6 @@ package com.factoriaf5.rps.models;
 public class Rock implements Material{
     
     @Override
-    public void execute() {
-        
-        System.out.println("Soy una piedra");
-    }
-
-    @Override
     public String isBetterThan(Material material) {
         
         if(material instanceof Paper) return "Piedra pierde contra Papel";

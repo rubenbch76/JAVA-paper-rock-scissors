@@ -3,39 +3,43 @@ package com.factoriaf5.rps.application;
 import java.util.Scanner;
 
 import com.factoriaf5.rps.models.Material;
-import com.factoriaf5.rps.models.MaterialFactoryName;
+import com.factoriaf5.rps.models.MaterialFactory;
 
 public class Game {
     
-    public static MaterialFactoryName factory = new MaterialFactoryName();
+    public static MaterialFactory factory = new MaterialFactory();
 
     public static void main(String[] args) {
-        readData();
 
+        startGame();
     }
 
-    public static void readData(){
+    public static void startGame(){
+
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Introduzca Piedra(R), Papel(P) o Tijera(S)");
-        String gamerInputMaterial = input.nextLine();
+        System.out.println("Player One: Introduzca Rock(R), Paper(P) o Scissors(S)");
+        String playerOneInputMaterial = input.nextLine();
+
+        System.out.println("Player Two: Introduzca Rock(R), Paper(P) o Scissors(S)");
+        String playerTwoInputMaterial = input.nextLine();
 
         input.close();
 
-        Material gamerMaterial = factory.createMaterialByName(gamerInputMaterial);
-        Material cpuMaterial = factory.createMaterialByName("P");
+        Material playerOneMaterial = factory.createMaterial(playerOneInputMaterial);
+        Material playerTwoMaterial = factory.createMaterial(playerTwoInputMaterial);
 
-        checkData(gamerMaterial, cpuMaterial);
+        checkAndShowWinner(playerOneMaterial, playerTwoMaterial);
     }
 
-    public static void checkData(Material userMaterial, Material cpuMaterial) {
+    public static String checkAndShowWinner(Material playerOneMaterial, Material playerTwoMaterial) {
 
-        String output = userMaterial.isBetterThan(cpuMaterial);
+        String winner = playerOneMaterial.isBetterThan(playerTwoMaterial);
 
-        System.out.println(output);
-
+        System.out.println(winner);
+        
+        return winner;
     }
-
 }
 
         
